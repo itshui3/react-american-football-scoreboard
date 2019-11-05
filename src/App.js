@@ -8,6 +8,7 @@ function App() {
 
   const [home, setHome] = useState(0);
   const [away, setAway] = useState(0);
+  const [quarter, setQuarter] = useState(1);
 
   return (
     <div className="container">
@@ -26,7 +27,7 @@ function App() {
             <div className="away__score">{away}</div>
           </div>
         </div>
-        <BottomRow />
+        <BottomRow quarter={quarter} />
       </section>
       <section className="buttons">
         <div className="homeButtons">
@@ -37,6 +38,10 @@ function App() {
         <div className="awayButtons">
           <button className="awayButtons__touchdown" onClick={() => setAway(away + 7)}>Away Touchdown</button>
           <button className="awayButtons__fieldGoal" onClick={() => setAway(away + 3)}>Away Field Goal</button>
+        </div>
+        <div className="gameButtons">
+          <button className="nextQuarter" onClick={() => setQuarter(quarter+1)}>Next Quarter</button>
+          <button className="newGame">New Game</button>
         </div>
       </section>
     </div>
